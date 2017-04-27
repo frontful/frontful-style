@@ -1,0 +1,21 @@
+{
+  "name": "frontful-style",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frontful/frontful-style.git"
+  },
+  "scripts": {
+    "build": "babel-preset-frontful build",
+    "deploy": "babel-preset-frontful deploy"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-preset-frontful": "0.x || 1.x",
+    "eslint-config-frontful": "0.x || 1.x"
+  }
+}

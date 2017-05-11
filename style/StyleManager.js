@@ -14,6 +14,8 @@ class StyleManager {
 
     this.definitions = []
     this.styles = []
+
+    this.reset = this.reset.bind(this)
   }
 
   get config() {
@@ -58,6 +60,11 @@ class StyleManager {
       this.styles.push(style)
     }
     return this.styles[index]
+  }
+
+  reset() {
+    this.definitions = []
+    this.styles = []
   }
 
   getSession(userAgent) {

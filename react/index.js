@@ -1,4 +1,4 @@
-import StyleManager from './StyleManager'
+import StyleManager from './StyleManager.jsx'
 import style from './style'
 
 export {

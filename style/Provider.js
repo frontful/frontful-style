@@ -1,6 +1,6 @@
-import Style from './Style'
+import {Style} from './Style'
 import {difference, intersection, mapValues, merge, uniq} from 'lodash'
-import {styleManager} from './index'
+import {manager} from './index'
 
 const regexpBraces = new RegExp('(\\{.*?\\})', 'gi')
 const regexpClassNames = new RegExp('([.][^:# .,}{]+)', 'gi')
@@ -36,18 +36,18 @@ class Provider {
     const {theme, ...restDefinitionProps} = this.props
 
     const definitionProps = {
-      ...styleManager.dependencies,
+      ...manager.dependencies,
       ...restDefinitionProps,
-      theme: theme ? merge({}, styleManager.dependencies.theme, theme) : styleManager.dependencies.theme,
+      theme: theme ? merge({}, manager.dependencies.theme, theme) : manager.dependencies.theme,
       css: this.css.bind(this),
     }
 
     let extendedDefinitionProps = definitionProps
 
-    if (styleManager.extensions) {
+    if (manager.extensions) {
       extendedDefinitionProps = {
         ...definitionProps,
-        ...mapValues(styleManager.extensions, (extension) => this.initializeExtension(extension, definitionProps))
+        ...mapValues(manager.extensions, (extension) => this.initializeExtension(extension, definitionProps))
       }
     }
 
@@ -110,7 +110,7 @@ class Provider {
         if (usedClassNames.length > 0) {
         ref.usedClassNames = ref.usedClassNames.concat(usedClassNames)
         ref.usedDefinitions.push(this.definition)
-        ref.result = ref.result.concat(usedClassNames.map((name) => (`${styleManager.config.keepOriginalClassNames ? `_${name} ` : ''}${name}_${this.id}`)))
+        ref.result = ref.result.concat(usedClassNames.map((name) => (`${manager.config.keepOriginalClassNames ? `_${name} ` : ''}${name}_${this.id}`)))
       }
     }
 
@@ -179,4 +179,6 @@ class Provider {
   }
 }
 
-export default Provider
+export {
+  Provider,
+}

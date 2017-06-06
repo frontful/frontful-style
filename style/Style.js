@@ -1,12 +1,12 @@
-import StyleProvider from './StyleProvider'
-import fork from '../utils/fork'
+import {fork} from 'frontful-utils'
+import {Provider} from './Provider'
 import {difference, uniq} from 'lodash'
 
 class Style {
   constructor(definition, index) {
     this.definition = definition
     this.index = index
-    this.provider = new StyleProvider(this, this.definition)
+    this.provider = new Provider(this, this.definition)
     this.expose('theme', this.provider, (theme) => ({theme}))
   }
 
@@ -43,7 +43,7 @@ class Style {
       provider: null,
     })
 
-    style.provider = new StyleProvider(style, provider.selector, provider.definition, props)
+    style.provider = new Provider(style, provider.selector, provider.definition, props)
 
     if (this.isInstance) {
       this.configurations.push(style)
@@ -63,7 +63,7 @@ class Style {
         provider: null,
       })
       delete style._with
-      style.provider = new StyleProvider(style, this.definition, props || this._with)
+      style.provider = new Provider(style, this.definition, props || this._with)
     }
     else {
       style = fork(this, {
@@ -116,4 +116,6 @@ class Style {
   }
 }
 
-export default Style
+export {
+  Style,
+}

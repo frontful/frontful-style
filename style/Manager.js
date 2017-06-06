@@ -1,12 +1,11 @@
 import Prefixer from 'inline-style-prefixer'
-import Style from './Style'
-import fork from '../utils/fork'
-import isBrowser from '../utils/isBrowser'
+import {fork, isBrowser} from 'frontful-utils'
+import {Style} from './Style'
 import {merge} from 'lodash'
 
 const headElement = isBrowser() ? document.getElementsByTagName('head')[0] : null
 
-class StyleManager {
+class Manager {
   constructor({config, dependencies, extensions} = {}) {
     this.config = config
     this.dependencies = dependencies
@@ -267,4 +266,6 @@ class StyleManager {
   }
 }
 
-export default StyleManager
+export {
+  Manager,
+}

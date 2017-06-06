@@ -1,23 +1,23 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import {styleManager} from '../style'
+import {manager} from './index'
 
-class StyleManager extends React.PureComponent {
+class Session extends React.PureComponent {
   componentWillMount() {
-    this.sessionStyleManager = this.props.sessionStyleManager || styleManager.getSession()
+    this.session = this.props.session || manager.getSession()
 
     if (this.props.globalStyle) {
-      this.style = this.sessionStyleManager.getInstance(this.props.globalStyle)
+      this.style = this.session.getInstance(this.props.globalStyle)
     }
   }
 
   static childContextTypes = {
-    sessionStyleManager: PropTypes.any
+    'style.manager.session': PropTypes.any
   }
 
   getChildContext() {
     return {
-      sessionStyleManager: this.sessionStyleManager
+      'style.manager.session': this.session
     }
   }
 
@@ -32,4 +32,6 @@ class StyleManager extends React.PureComponent {
   }
 }
 
-export default StyleManager
+export {
+  Session,
+}

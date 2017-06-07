@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import {getDisplayName, isBrowser} from 'frontful-utils'
 import {Manager} from './Manager'
-import {Session} from './Session'
+import {Session} from './Session.jsx'
 
 const manager = new Manager()
 

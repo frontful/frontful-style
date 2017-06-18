@@ -1,18 +1,30 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import {getDisplayName, isBrowser} from 'frontful-utils'
-import {Manager} from './Manager'
-import {Session} from './Session.jsx'
-
-const manager = new Manager()
+import {Style} from './Style.jsx'
+import {isBrowser} from 'frontful-utils'
+import {manager} from './manager'
 
 function style(definition) {
+  return style.bind(definition)
+}
+
+style.manager = manager
+
+style.bind = function (definition) {
+  if (definition && typeof definition !== 'function') {
+    if (typeof definition.default === 'function') {
+      definition = definition.default
+    }
+  }
+
+  if (!definition) {
+    throw new Error(`[frontful-style] Missing style definition`)
+  }
+
   const style = manager.createStyle(definition)
 
   return (Component) => {
     return class StyleComponent extends React.PureComponent {
-      static displayName = `Style(${getDisplayName(Component)})`
-
       static contextTypes = {
         'style.manager.session': PropTypes.any
       }
@@ -63,18 +75,10 @@ function style(definition) {
   }
 }
 
-style.manager = manager
-
-const Style = {
-  Session,
-}
-
 const reset = manager.reset
 
 export {
-  Session,
   Style,
-  manager,
   reset,
   style,
 }

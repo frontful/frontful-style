@@ -1,6 +1,6 @@
-import {fork} from 'frontful-utils'
 import {Provider} from './Provider'
 import {difference, uniq} from 'lodash'
+import {fork} from 'frontful-utils'
 
 class Style {
   constructor(definition, index) {

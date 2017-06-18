@@ -1,6 +1,6 @@
 import Prefixer from 'inline-style-prefixer'
-import {fork, isBrowser} from 'frontful-utils'
 import {Style} from './Style'
+import {fork, isBrowser} from 'frontful-utils'
 import {merge} from 'lodash'
 
 const headElement = isBrowser() ? document.getElementsByTagName('head')[0] : null
@@ -203,6 +203,7 @@ class Manager {
       styles.push(`<style id="sidx_${descriptor.styles[index].id}" type="text/css">`)
       styles.push(stylesheet)
       styles.push(`</style>`)
+      styles.push(`<noscript id="sidx"></noscript>`)
       return styles
     }, []).join(this.config.minify ? '' : '\r\n')
   }
@@ -266,6 +267,8 @@ class Manager {
   }
 }
 
+const manager = new Manager()
+
 export {
-  Manager,
+  manager,
 }

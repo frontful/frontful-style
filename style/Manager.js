@@ -203,9 +203,8 @@ class Manager {
       styles.push(`<style id="sidx_${descriptor.styles[index].id}" type="text/css">`)
       styles.push(stylesheet)
       styles.push(`</style>`)
-      styles.push(`<noscript id="sidx"></noscript>`)
       return styles
-    }, []).join(this.config.minify ? '' : '\r\n')
+    }, []).join(this.config.minify ? '' : '\r\n').concat('<noscript id="sidx"></noscript>')
   }
 
   createStyleElement(index, css) {

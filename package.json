@@ -1,6 +1,6 @@
 {
   "name": "frontful-style",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "private": true,
   "description": "CSS-in-JS styling approach for component based applications with focus on style API-ification, dynamic runtime modifications and isomorphism without compromising CSS features",
   "license": "MIT",

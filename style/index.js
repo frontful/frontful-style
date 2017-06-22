@@ -66,10 +66,12 @@ style.bind = function (definition) {
       }
 
       componentWillUnmount() {
-        this.style.dispose()
         if (super.componentWillUnmount) {
           super.componentWillUnmount.apply(this, arguments)
         }
+        setTimeout(() => {
+          this.style.dispose()
+        })
       }
     }
   }

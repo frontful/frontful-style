@@ -21,9 +21,9 @@ style.bind = function (definition) {
     throw new Error(`[frontful-style] Missing style definition`)
   }
 
-  const style = manager.createStyle(definition)
+  let style = manager.createStyle(definition)
 
-  return (Component) => {
+  function decorator (Component) {
     return class StyleComponent extends React.PureComponent {
       static contextTypes = {
         'style.manager.session': PropTypes.any
@@ -75,6 +75,13 @@ style.bind = function (definition) {
       }
     }
   }
+
+  decorator.with = function(...args) {
+    style = style.with(...args)
+    return decorator
+  }
+
+  return decorator
 }
 
 const reset = manager.reset

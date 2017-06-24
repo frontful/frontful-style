@@ -11,16 +11,6 @@ function style(definition) {
 style.manager = manager
 
 style.bind = function (definition) {
-  if (definition && typeof definition !== 'function') {
-    if (typeof definition.default === 'function') {
-      definition = definition.default
-    }
-  }
-
-  if (!definition) {
-    throw new Error(`[frontful-style] Missing style definition`)
-  }
-
   let style = manager.createStyle(definition)
 
   function decorator (Component) {

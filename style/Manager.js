@@ -51,6 +51,17 @@ class Manager {
   }
 
   createStyle = (definition) => {
+    if (definition instanceof Style) {
+      return definition
+    }
+    else if (definition && typeof definition !== 'function' && typeof definition.default === 'function') {
+      definition = definition.default
+    }
+
+    if (!definition) {
+      throw new Error(`[frontful-style] Missing style definition`)
+    }
+
     let index = this.definitions.indexOf(definition)
     if (index === -1) {
       index = this.styles.length

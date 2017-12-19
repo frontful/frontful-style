@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import {Style} from './Style.jsx'
 import {isBrowser} from 'frontful-utils'
-import {manager} from './manager'
+import {manager} from './Manager'
 
 function style(definition) {
   return style.bind(definition)

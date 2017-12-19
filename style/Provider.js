@@ -1,6 +1,6 @@
 import {Style} from './Style'
 import {difference, intersection, mapValues, merge, uniq} from 'lodash'
-import {manager} from './manager'
+import {manager} from './Manager'
 
 const regexpBraces = new RegExp('(\\{.*?\\})', 'gi')
 const regexpClassNames = new RegExp('([.][^:# .,}{]+)', 'gi')

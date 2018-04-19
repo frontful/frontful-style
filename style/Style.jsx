@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import {manager} from './Manager'
 
-class Style extends React.PureComponent {
+class Style extends React.Component {
   componentWillMount() {
     this.session = this.props.session || manager.getSession()
 

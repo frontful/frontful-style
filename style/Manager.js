@@ -1,7 +1,7 @@
 import Prefixer from 'inline-style-prefixer'
+import merge from 'lodash/merge'
 import {Style} from './Style'
 import {fork, isBrowser} from 'frontful-utils'
-import {merge} from 'lodash'
 
 const headElement = isBrowser() ? document.getElementsByTagName('head')[0] : null
 

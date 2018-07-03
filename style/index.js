@@ -19,10 +19,10 @@ style.bind = function (definition) {
         'style.manager.session': PropTypes.any
       }
 
-      componentWillMount() {
+      UNSAFE_componentWillMount() {
         this.style = this.context['style.manager.session'].getInstance(style)
-        if (super.componentWillMount) {
-          super.componentWillMount.apply(this, arguments)
+        if (super.UNSAFE_componentWillMount) {
+          super.UNSAFE_componentWillMount.apply(this, arguments)
         }
       }
 

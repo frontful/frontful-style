@@ -1,6 +1,6 @@
 {
   "name": "frontful-style",
-  "version": "2.0.10",
+  "version": "3.0.3",
   "private": true,
   "description": "CSS-in-JS styling approach for component based applications with focus on style API-ification, dynamic runtime modifications and isomorphism without compromising CSS features",
   "license": "MIT",
@@ -16,8 +16,8 @@
     "test:eslint": "node ./node_modules/eslint/bin/eslint.js --max-warnings 0 ."
   },
   "dependencies": {
-    "frontful-utils": "2.x",
-    "inline-style-prefixer": "^3.0.2",
+    "frontful-utils": "3.x",
+    "inline-style-prefixer": "^4.0.2",
     "lodash": "^4.17.4",
     "prop-types": "^15.x"
   },
@@ -25,8 +25,8 @@
     "react": "16.x"
   },
   "devDependencies": {
-    "babel-preset-frontful": "2.x",
-    "eslint-config-frontful": "2.x",
+    "babel-preset-frontful": "3.x",
+    "eslint-config-frontful": "3.x",
     "react": "16.x"
   }
 }

@@ -3,7 +3,7 @@ import React from 'react'
 import {manager} from './Manager'
 
 class Style extends React.Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.session = this.props.session || manager.getSession()
 
     if (this.props.globalStyle) {

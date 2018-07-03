@@ -1,5 +1,9 @@
+import difference from 'lodash/difference'
+import intersection from 'lodash/intersection'
+import mapValues from 'lodash/mapValues'
+import merge from 'lodash/merge'
+import uniq from 'lodash/uniq'
 import {Style} from './Style'
-import {difference, intersection, mapValues, merge, uniq} from 'lodash'
 import {manager} from './Manager'
 
 const regexpBraces = new RegExp('(\\{.*?\\})', 'gi')

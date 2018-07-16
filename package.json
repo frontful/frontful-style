@@ -1,6 +1,6 @@
 {
   "name": "frontful-style",
-  "version": "3.0.3",
+  "version": "3.0.5",
   "private": true,
   "description": "CSS-in-JS styling approach for component based applications with focus on style API-ification, dynamic runtime modifications and isomorphism without compromising CSS features",
   "license": "MIT",
@@ -14,6 +14,9 @@
     "deploy": "yarn test && babel-preset-frontful deploy",
     "test": "yarn test:eslint",
     "test:eslint": "node ./node_modules/eslint/bin/eslint.js --max-warnings 0 ."
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "frontful-utils": "3.x",

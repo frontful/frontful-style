@@ -1,6 +1,6 @@
 {
   "name": "frontful-style",
-  "version": "3.0.5",
+  "version": "3.0.10",
   "private": true,
   "description": "CSS-in-JS styling approach for component based applications with focus on style API-ification, dynamic runtime modifications and isomorphism without compromising CSS features",
   "license": "MIT",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "frontful-utils": "3.x",
-    "inline-style-prefixer": "^4.0.2",
+    "inline-style-prefixer": "^5.0.3",
     "lodash": "^4.17.4",
     "prop-types": "^15.x"
   },

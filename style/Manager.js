@@ -1,7 +1,7 @@
-import Prefixer from 'inline-style-prefixer'
 import merge from 'lodash/merge'
 import {Style} from './Style'
 import {fork, isBrowser} from 'frontful-utils'
+import {prefix} from 'inline-style-prefixer'
 
 const headElement = isBrowser() ? document.getElementsByTagName('head')[0] : null
 
@@ -77,11 +77,11 @@ class Manager {
     this.styles = []
   }
 
-  getSession(userAgent) {
+  getSession(/* userAgent */) {
     return fork(this, {
-      prefixer: new Prefixer({
-        userAgent: userAgent
-      }),
+      // prefixer: new Prefixer({
+      //   userAgent: userAgent
+      // }),
       isSession: true,
       instances: [],
     })
@@ -153,7 +153,7 @@ class Manager {
     spacing = spacing || ''
     if (_stylesheet) {
       const stylesheet = this.flatten(_stylesheet)
-      const prefixedStylesheet = this.prefixer.prefix(stylesheet)
+      const prefixedStylesheet = prefix(stylesheet)
       return Object.keys(prefixedStylesheet).reduce((lines, propertyName) => {
         const endPropName = propertyName.replace(/([A-Z])/g, '-$1').toLowerCase()
         if (Array.isArray(prefixedStylesheet[propertyName])) {
